@@ -1,47 +1,58 @@
-# Getting Started with Create React App
+<!-- readme-seo: bannysukumar-professional-v4 -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Telegram Mini App
 
-[![License](https://img.shields.io/github/license/Bannysukumar/Telegram-Mini-App)](https://github.com/Bannysukumar/Telegram-Mini-App/blob/main/LICENSE) [![Stars](https://img.shields.io/github/stars/Bannysukumar/Telegram-Mini-App)](https://github.com/Bannysukumar/Telegram-Mini-App/stargazers) [![Last commit](https://img.shields.io/github/last-commit/Bannysukumar/Telegram-Mini-App)](https://github.com/Bannysukumar/Telegram-Mini-App/commits/main)
+Telegram Mini App is a React client for Telegram. `public/index.html` loads `telegram-web-app.js` and TON Connect, and the page title is Telegram-web-app. Screens in `src/pages` cover home, farming, tasks, a game, news, wallet, invites, and profile.
 
 ## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Create React App starter text is not the product. `package.json` names the package `admin-app` and depends on React 19, Firebase, `react-router-dom`, and `@tonconnect/ui`. `src/components/WebAppInitializer.js` and `src/reactContext/TelegramContext.js` are part of the Telegram integration. `src/reactContext/WalletContext.js` sits next to the wallet page.
 
-
-What is actually in the repository: `public/`, `src/`. GitHub reports the primary language as JavaScript.
+There is no GitHub homepage on this repository. The topic list should describe a Telegram mini app, not a Telegram bot, because this tree is the web client.
 
 ## Features
 
+Confirmed by files under `src/pages` and `public/index.html`:
 
-- Admin News
-- Admin Task
-- Streak Popup
+- Telegram Web App script and TON Connect script in `public/index.html`
+- Home, farming, task, game, news, wallet, network invite, and profile pages
+- Firebase config in `src/services/FirebaseConfig.js`
+- Admin news and admin task pages
 
 ## Tech Stack
 
 | Technology | Where it shows up |
 |---|---|
-| React | User interface |
-| Firebase | Backend services used by this repository |
-| Tailwind CSS | Styling |
+| React 19 | `package.json` |
+| Create React App scripts | `react-scripts` in `package.json` |
+| Firebase | `firebase` dependency and `src/services/FirebaseConfig.js` |
+| Telegram Web App | `telegram-web-app.js` in `public/index.html` |
+| TON Connect | `@tonconnect/ui` and the TON Connect script |
+| Tailwind CSS | `tailwind.config.js` |
+
+## Architecture
+
+Telegram client → this React app → Firebase services, with TON Connect loaded for the wallet screen.
 
 ## Project Structure
 
 ```text
 Telegram-Mini-App/
-├── public/
-├── src/
-├── BUG_REPORT.md
-├── PERFORMANCE_OPTIMIZATIONS.md
-├── SITE_PERFORMANCE_ANALYSIS.md
-├── package-lock.json
+├── public/index.html
+├── src/pages/
+├── src/components/WebAppInitializer.js
+├── src/reactContext/
+├── src/services/FirebaseConfig.js
 ├── package.json
-├── postcss.config.js
-├── tailwind.config.js
+└── tailwind.config.js
 ```
 
-## Getting Started
+## Prerequisites
+
+- Node.js
+- npm
+
+## Installation
 
 ```bash
 git clone https://github.com/Bannysukumar/Telegram-Mini-App.git
@@ -50,11 +61,19 @@ npm install
 npm start
 ```
 
-Scripts defined in package.json:
+`npm start` runs `react-scripts start`. `npm test` runs `react-scripts test`.
 
-- `npm run start` — `react-scripts start`
-- `npm run build` — `react-scripts build`
-- `npm run test` — `react-scripts test`
+## Configuration
+
+Firebase settings are read from `src/services/FirebaseConfig.js`. Do not commit a production service-account key.
+
+## Usage
+
+Open the app from a Telegram web-app entry so `telegram-web-app.js` can initialize. The home, farm, task, game, news, and wallet routes are implemented under `src/pages`.
+
+## Testing
+
+`src/App.test.js` and `src/setupTests.js` are present. Run `npm test`.
 
 ## Contributing
 
@@ -66,8 +85,6 @@ Licensed under MIT. See [LICENSE](LICENSE).
 
 ## Author
 
-[Banny Sukumar](https://github.com/Bannysukumar)
+Banny Sukumar
 
-- GitHub: [@Bannysukumar](https://github.com/Bannysukumar)
-- Portfolio: [adepu-sukumar.vercel.app](https://adepu-sukumar.vercel.app/)
-- LinkedIn: [Adepu Sukumar](https://www.linkedin.com/in/adepu-sukumar-59b423351)
+GitHub: https://github.com/Bannysukumar
